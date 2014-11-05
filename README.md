@@ -9,10 +9,10 @@ Just wrap your ExpressJS app or router. All origin functions are still available
 ```js
 var express = require('express'),
 	swag = require('bo-swag'),
-	app = swag.router(express());
+	app = swag.wrap(express());
 ```
 
-Standard call of .get still works and generate NO API doc
+Standard call of .get, .use. or other verbs works as expected and generate NO API doc for you:
 
 ```js
 app.get('/', function (req, res) {
@@ -20,9 +20,10 @@ app.get('/', function (req, res) {
 })
 ```
 
-If a object is provided after the path an API doc will be generated:
+But if you provide a small documentation hint this project will automatically generate an API doc for you:
 
 ```js
+// Name => Standard JSON-scheme
 app.addDefinition('Car', {
 	title: 'Cars',
 	type: 'object',
@@ -33,18 +34,19 @@ app.addDefinition('Car', {
 });
 
 app.get('/cars', { response: 'Cars' }, function (req, res) {
-	res.send('Hello World!')
+	// ...
 })
 app.post('/cars', { body: 'Car' }, function (req, res) {
-	res.send('Hello World!')
+	// ...
 })
 ```
 
-Recommended formatting if you need more (and you will..) than one
-attribute. This exmaple shows also how you can use simplified
-documetation attributes.
+This exmaple show how you can use multiple attributs. Expect
+some shortcuts like `body` you can use all swagger documentation
+attributes here!
 
-And yes, `body: 'A String'` will be automatically expanded to `parameters: [ { in: 'body', name: 'body', schema: { $ref: '#/definitions/A String' } } ]`
+Shortcuts? Yes! `body: 'A String'` is a shortcut and will be
+automatically expanded to `parameters: [ { in: 'body', name: 'body', schema: { $ref: '#/definitions/A String' } } ]`.
 
 ```js
 app.post('/api', {
@@ -55,12 +57,16 @@ app.post('/api', {
 })
 ```
 
-To include the swagger-ui (static HTML and a dynamically generated swagger.json) just include
-the middleware. The spec basics are still required...
-
-We recommend to load this from an api.js or spec.js file. Checkout also the basics example.
+If you want load your definitions from an external spec
+javascript or json file, you can merge your input easily:
 
 ```js
-var spec = require('./spec.js');
+app.spec.load(require('./spec.js'));
+```
+
+To include the swagger-ui (static HTML and a dynamically
+generated swagger.json) just include the middleware.
+
+```js
 app.use('/explorer', swag.middleware(spec, app));
 ```

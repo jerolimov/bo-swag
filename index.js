@@ -4,20 +4,22 @@
  * documnetation automatically in the given object and delegates
  * all method calls to the orignal implementation.
  */
-module.exports.app = module.exports.router =
-	require('./lib/wrapper/router');
+module.exports.app =
+module.exports.router =
+module.exports.wrap = require('./lib/wrapper/router');
 
 /**
  * Exports an ExpressJS middleware which will automatically
  * generate "only" the "swagger.json" specification.
  */
-module.exports.specMiddleware =
-	require('./lib/middleware/spec');
+module.exports.specMiddleware = require('./lib/middleware/spec');
 
 /**
  * Exports an ExpressJS middleware which provides the Swagger-UI
  * Explorer interface including an automatically generated
  * "swagger.json" specification.
  */
-module.exports.explorerMiddleware =
-	require('./lib/middleware/explorer');
+module.exports.swaggerUI =
+module.exports.explorer =
+module.exports.middleware =
+module.exports.explorerMiddleware = require('./lib/middleware/explorer');

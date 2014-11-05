@@ -30,7 +30,7 @@ Recommended formatting if you need more (and you will..) than one
 attribute. This exmaple shows also how you can use simplified
 documetation attributes.
 
-`{ body: 'A String' }` will be automatically expanded to `{ parameters: [ { in: 'body', name: 'body', schema: { $ref: '#/definitions/A String' } } ]`
+And yes, `body: 'A String'` will be automatically expanded to `parameters: [ { in: 'body', name: 'body', schema: { $ref: '#/definitions/A String' } } ]`
 
 ```js
 app.post('/api', {

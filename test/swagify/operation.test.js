@@ -2,7 +2,7 @@
 
 var	assert = require('assert'),
 	express = require('express'),
-	swagifyOperation = require('../lib/swagify/operation');
+	swagifyOperation = require('../../lib/swagify/operation');
 
 describe('Operation', function() {
 	it('should return empty spec for null', function() {
@@ -18,10 +18,10 @@ describe('Operation', function() {
 	});
 
 	it('should return simple spec data', function() {
-		var spec = swagifyOperation({ summery: 'Summery' });
+		var spec = swagifyOperation({ summary: 'Summary' });
 
 		assert.deepEqual(spec, {
-			summery: 'Summery'
+			summary: 'Summary'
 		});
 	});
 

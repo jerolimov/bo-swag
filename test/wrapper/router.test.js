@@ -2,7 +2,7 @@
 
 var	assert = require('assert'),
 	express = require('express'),
-	router = require('../lib/router');
+	router = require('../../lib/wrapper/router');
 
 describe('Router', function() {
 	var expressRouter;

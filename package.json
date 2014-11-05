@@ -1,0 +1,40 @@
+{
+	"name": "bo-swag",
+	"version": "0.0.1",
+	"description": "A lightweight (stupid) solution to add swagger api documentation",
+	"author": "Christoph Jerolimov",
+	"license": "MIT",
+	"scripts": {
+		"test": "node ./node_modules/.bin/mocha",
+		"test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --"
+	},
+	"keywords": [
+		"bestof",
+		"express",
+		"expressjs",
+		"swagger",
+		"swagger-ui"
+	],
+	"homepage": "https://github.com/jerolimov/bo-swag",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jerolimov/bo-swag"
+	},
+	"bugs": {
+		"url": "https://github.com/jerolimov/bo-swag/issues"
+	},
+	"dependencies": {
+		"methods": "1.1.0",
+		"serve-static": "1.7.1",
+		"swagger-ui": "2.1.0-alpha.3"
+	},
+	"devDependencies": {
+		"express": "*",
+		"chai": "~1.9.2",
+		"coveralls": "~2.11.2",
+		"istanbul": "~0.3.2",
+		"mocha": "~2.0.1",
+		"should": "4.1.0",
+		"sinon": "~1.11.1"
+	}
+}

@@ -1,9 +1,9 @@
 # Best of swagger :)
 
-	var express = require('express');
+## The idea:
 
-	// You should normally require 'bo-swag' here!
-	var swag = require('../..');
+	var express = require('express'),
+        swag = require('bo-swag');
 
 	// This wrapper adds the addtional functiosn to your app!
 	// All origin functions are still available!!

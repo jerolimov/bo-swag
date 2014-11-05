@@ -1,6 +1,8 @@
-# Best of swagger :)
+# API documentation with swagger for ExpressJS...
 
-## The idea
+**Work in Process**
+
+## DRY.
 
 Just wrap your ExpressJS app or router. All origin functions are still available!!
 
@@ -21,7 +23,19 @@ app.get('/', function (req, res) {
 If a object is provided after the path an API doc will be generated:
 
 ```js
-app.get('/api', { summary: 'Just an example' }, function (req, res) {
+app.addDefinition('Car', {
+	title: 'Cars',
+	type: 'object',
+	properties: {
+		manufacturer: { type: String },
+		model: { type: String }
+	}
+});
+
+app.get('/cars', { response: 'Cars' }, function (req, res) {
+	res.send('Hello World!')
+})
+app.post('/cars', { body: 'Car' }, function (req, res) {
 	res.send('Hello World!')
 })
 ```

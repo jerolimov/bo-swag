@@ -4,8 +4,8 @@
  * documnetation automatically in the given object and delegates
  * all method calls to the orignal implementation.
  */
-module.exports.app = rmodule.exports.router =
-	require('./lib/router');
+module.exports.app = module.exports.router =
+	require('./lib/wrapper/router');
 
 /**
  * Exports an ExpressJS middleware which will automatically

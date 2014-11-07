@@ -1,9 +1,9 @@
 
 var express = require('express'),
 	swag = require('../..'),
-	router = swag.router(express.Router());
+	subroutes = swag.router(express.Router());
 
-router.use('/subroute', require('./api'));
-router.use(require('./api'));
+subroutes.use('/api', require('./api'));
+subroutes.use(require('./api'));
 
-module.exports = router;
+module.exports = subroutes;

@@ -6,13 +6,14 @@
  */
 module.exports.app =
 module.exports.router =
-module.exports.wrap = require('./lib/wrapper/router');
+module.exports.wrap = require('./lib/routerWrapper');
 
 /**
  * Exports an ExpressJS middleware which will automatically
  * generate "only" the "swagger.json" specification.
  */
-module.exports.specMiddleware = require('./lib/middleware/spec');
+module.exports.spec =
+module.exports.specMiddleware = require('./lib/specMiddleware');
 
 /**
  * Exports an ExpressJS middleware which provides the Swagger-UI
@@ -22,4 +23,4 @@ module.exports.specMiddleware = require('./lib/middleware/spec');
 module.exports.swaggerUI =
 module.exports.explorer =
 module.exports.middleware =
-module.exports.explorerMiddleware = require('./lib/middleware/explorer');
+module.exports.explorerMiddleware = require('./lib/explorerMiddleware');

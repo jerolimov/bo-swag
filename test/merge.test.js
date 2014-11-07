@@ -1,7 +1,7 @@
 'use strict';
 
 var	assert = require('assert'),
-	merge = require('../../lib/swagify/merge');
+	merge = require('../lib/merge');
 
 describe('merge', function() {
 	it('should return undefined for undefined values', function() {

@@ -2,23 +2,23 @@
 
 var	assert = require('assert'),
 	express = require('express'),
-	swagifyOperation = require('../../lib/swagify/operation');
+	operationWrapper = require('../lib/operationWrapper');
 
-describe('Operation', function() {
+describe('operationWrapper', function() {
 	it('should return empty spec for null', function() {
-		var spec = swagifyOperation();
+		var spec = operationWrapper();
 
 		assert.deepEqual(spec, {});
 	});
 
 	it('should return empty spec for an empty spec', function() {
-		var spec = swagifyOperation({});
+		var spec = operationWrapper({});
 
 		assert.deepEqual(spec, {});
 	});
 
 	it('should return simple spec data', function() {
-		var spec = swagifyOperation({ summary: 'Summary' });
+		var spec = operationWrapper({ summary: 'Summary' });
 
 		assert.deepEqual(spec, {
 			summary: 'Summary'
@@ -26,7 +26,7 @@ describe('Operation', function() {
 	});
 
 	it('should return body definition if it is a string', function() {
-		var spec = swagifyOperation({ body: 'Car' });
+		var spec = operationWrapper({ body: 'Car' });
 
 		assert.deepEqual(spec, {
 			parameters: [ {
@@ -40,7 +40,7 @@ describe('Operation', function() {
 	});
 
 	it('should return body definition if it is an object', function() {
-		var spec = swagifyOperation({ body: { schema: 'Car', required: false } });
+		var spec = operationWrapper({ body: { schema: 'Car', required: false } });
 
 		assert.deepEqual(spec, {
 			parameters: [ {

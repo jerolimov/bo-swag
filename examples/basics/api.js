@@ -1,12 +1,12 @@
 
 var express = require('express'),
 	swag = require('../..'),
-	router = swag.router(express.Router());
+	api = swag.router(express.Router());
 
-router.get('/', {
+api.get('/example', {
 	summary: 'Just an example'
 }, function (req, res) {
 	res.send('Hello World!')
 });
 
-module.exports = router;
+module.exports = api;

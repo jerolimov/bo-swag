@@ -1,7 +1,7 @@
 'use strict';
 
 var	assert = require('assert'),
-	spec = require('../../lib/wrapper/spec');
+	spec = require('../lib/spec');
 
 describe('spec', function() {
 

@@ -14,7 +14,11 @@ app.use(require('./routes'));
 // Spec basics are still required... We recommend to load this from
 // an api.js or spec.js file. Checkout also the basics example.
 var spec = require('./spec');
-app.use('/explorer', swag.middleware(spec, require('./routes')));
+
+var explorer = express.Router();
+explorer.use('/explorer/', swag.middleware(spec, app));
+
+app.use(explorer);
 
 var server = app.listen(3000, function () {
 

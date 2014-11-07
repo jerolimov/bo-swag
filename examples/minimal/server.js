@@ -40,8 +40,9 @@ app.post('/api', {
 var spec = {
 	title: 'Just another awesome API...'
 };
-
-app.use('/explorer', swag.middleware(spec, app));
+var explorer = express.Router();
+explorer.use('/explorer', swag.middleware(spec, app));
+app.use('/explorer', explorer);
 
 var server = app.listen(3000, function () {
 

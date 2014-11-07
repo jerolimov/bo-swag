@@ -8,7 +8,8 @@ var swag = require('../..');
 // All origin functions are still available!!
 var app = swag.router(express());
 
-// Standard call of .get still works and generate NO API doc
+// Standard calls of .get, .post, etc. are still working as expected.
+// But they will generate NO API documentation automatically.
 app.get('/', function (req, res) {
 	res.send('Hello World!')
 })

@@ -31,18 +31,26 @@ app.get('/api', { summary: 'Just an example' }, function (req, res) {
 // } ]
 app.post('/api', {
 	summary: 'Just an example',
-	body: 'Example'
+	body: 'Car'
 }, function (req, res) {
 	res.send('Hello World!')
 })
 
 // Spec basics are still required... We recommend to load this from
 // an api.js or spec.js file. Checkout also the basics example.
-var spec = {
-	title: 'Just another awesome API...'
-};
+var spec = swag.spec();
+spec.setTitle('Just another awesome API...');
+spec.addDefinition('Car', {
+	title: 'Cars',
+	type: 'object',
+	properties: {
+		manufacturer: { type: String },
+		model: { type: String }
+	}
+});
+
 var explorer = express.Router();
-explorer.use('/explorer', swag.middleware(spec, app));
+explorer.use('/explorer', swag.swaggerUI(spec, app));
 app.use('/explorer', explorer);
 
 var server = app.listen(3000, function () {

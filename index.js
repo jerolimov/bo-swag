@@ -1,3 +1,6 @@
+
+module.exports.spec = require('./lib/spec');
+
 /**
  * Export .app() and .router() which wraps an "ExpressJS app"
  * or "ExpressJS Router" instance. Will save the addtional
@@ -12,7 +15,6 @@ module.exports.wrap = require('./lib/routerWrapper');
  * Exports an ExpressJS middleware which will automatically
  * generate "only" the "swagger.json" specification.
  */
-module.exports.spec =
 module.exports.specMiddleware = require('./lib/specMiddleware');
 
 /**
@@ -21,6 +23,4 @@ module.exports.specMiddleware = require('./lib/specMiddleware');
  * "swagger.json" specification.
  */
 module.exports.swaggerUI =
-module.exports.explorer =
-module.exports.middleware =
 module.exports.explorerMiddleware = require('./lib/explorerMiddleware');

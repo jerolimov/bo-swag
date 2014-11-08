@@ -16,9 +16,8 @@ app.use(require('./routes'));
 var spec = require('./spec');
 
 var explorer = express.Router();
-explorer.use('/explorer/', swag.middleware(spec, app));
-
-app.use(explorer);
+explorer.use('/explorer', swag.swaggerUI(spec, app));
+app.use('/explorer', explorer);
 
 var server = app.listen(3000, function () {
 

@@ -166,7 +166,7 @@ describe('routerWrapper', function() {
 
 	describe('verb calls', function() {
 		it('should return specification for one api call', function() {
-			router.get('/test1', {});
+			router.get('/test1', {}, function(req, res, next) { next(); });
 
 			var spec = router.getSpecification();
 
@@ -192,8 +192,8 @@ describe('routerWrapper', function() {
 		});
 
 		it('should return specification for two api calls with different method', function() {
-			router.get('/test1', {});
-			router.post('/test1', {});
+			router.get('/test1', {}, function(req, res, next) { next(); });
+			router.post('/test1', {}, function(req, res, next) { next(); });
 
 			var spec = router.getSpecification();
 
@@ -220,8 +220,8 @@ describe('routerWrapper', function() {
 		});
 
 		it('should return specification for two api calls with different path', function() {
-			router.get('/test1', {});
-			router.get('/test2', {});
+			router.get('/test1', {}, function(req, res, next) { next(); });
+			router.get('/test2', {}, function(req, res, next) { next(); });
 
 			var spec = router.getSpecification();
 
@@ -253,8 +253,8 @@ describe('routerWrapper', function() {
 			var subRouter1 = routerWrapper(express.Router()),
 				subRouter2 = routerWrapper(express.Router());
 
-			subRouter1.get('/test1', {});
-			subRouter2.get('/test2', {});
+			subRouter1.get('/test1', {}, function(req, res, next) { next(); });
+			subRouter2.get('/test2', {}, function(req, res, next) { next(); });
 
 			router.use('/sub1', subRouter1);
 			router.use('/sub2', subRouter2);

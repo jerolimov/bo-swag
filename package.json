@@ -1,7 +1,7 @@
 {
 	"name": "bo-swag",
 	"version": "0.0.1",
-	"description": "A lightweight (stupid) solution to add swagger api documentation",
+	"description": "A lightweight solution to create swagger documentation with ExpressJS",
 	"author": "Christoph Jerolimov",
 	"license": "MIT",
 	"scripts": {

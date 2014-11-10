@@ -1,4 +1,4 @@
-# API documentation with swagger for ExpressJS...
+# A lightweight solution to create swagger documentation with ExpressJS
 
 **Work in Process**
 

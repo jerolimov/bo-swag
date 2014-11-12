@@ -14,6 +14,18 @@ describe('explorerMiddleware', function() {
 		assert.equal(typeof middleware, 'function');
 	});
 
+	it('should call spec middleware for swagger.json', function() {
+		var middleware = explorerMiddleware();
+
+		var result;
+
+		var req = { path: '/swagger.json' };
+		var res = { json: function(json) { result = json; } };
+		var next = function() {};
+		
+		middleware(req, res, next);
+	});
+
 	it('should call res.json with an object', function() {
 		var middleware = explorerMiddleware();
 

@@ -38,4 +38,16 @@ describe('merge', function() {
 		var result = merge({ a: [ 1 ] }, { a: [ 2 ] });
 		assert.deepEqual(result, { a: [ 1, 2 ] });
 	});
+
+	it('should not merge two numbers', function() {
+		assert.throws(function() {
+			merge(1, 2);
+		}, Error);
+	})
+
+	it('should not merge two different types', function() {
+		assert.throws(function() {
+			merge('1', 2);
+		}, Error);
+	})
 });

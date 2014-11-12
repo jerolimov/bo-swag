@@ -5,38 +5,59 @@ var assert = require('assert'),
 	typeWrapper = require('../lib/typeWrapper');
 
 describe('typeWrapper', function() {
-	it('should return undefined for undefined', function() {
+	it('should return string for undefined', function() {
 		var type = typeWrapper();
-		assert.equal(type, 'string');
+		assert.deepEqual(type, { type: 'string' });
 	});
 
-	it('should return null for null', function() {
+	it('should return string for null', function() {
 		var type = typeWrapper(null);
-		assert.equal(type, 'string');
+		assert.deepEqual(type, { type: 'string' });
 	});
 
 	it('should return string for string', function() {
 		var type = typeWrapper('string');
-		assert.equal(type, 'string');
+		assert.deepEqual(type, { type: 'string' });
+	});
+
+	it('should return number for number', function() {
+		var type = typeWrapper('number');
+		assert.deepEqual(type, { type: 'number' });
 	});
 
 	it('should return string for String', function() {
 		var type = typeWrapper(String);
-		assert.equal(type, 'string');
+		assert.deepEqual(type, { type: 'string' });
 	});
 
 	it('should return number for Number', function() {
 		var type = typeWrapper(Number);
-		assert.equal(type, 'number');
+		assert.deepEqual(type, { type: 'number' });
+	});
+
+	it('should return boolean for Boolean', function() {
+		var type = typeWrapper(Boolean);
+		assert.deepEqual(type, { type: 'boolean' });
 	});
 
 	it('should return array for Array', function() {
 		var type = typeWrapper(Array);
-		assert.equal(type, 'array');
+		assert.deepEqual(type, { type: 'array' });
 	});
 
 	it('should return object for Object', function() {
 		var type = typeWrapper(Object);
-		assert.equal(type, 'object');
+		assert.deepEqual(type, { type: 'object' });
+	});
+
+	it('should return date-time for Date', function() {
+		var type = typeWrapper(Date);
+		assert.deepEqual(type, { type: 'string', format: 'date-time' });
+	});
+
+	it('should throw error for unsupported type', function() {
+		assert.throws(function() {
+			typeWrapper(1234);
+		}, Error);
 	});
 });

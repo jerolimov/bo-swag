@@ -25,6 +25,64 @@ describe('operationWrapper', function() {
 		});
 	});
 
+	it('should transform query parameter with one type-only parameter', function() {
+		var spec = operationWrapper({ query: { param1: String }});
+
+		assert.deepEqual(spec, {
+			parameters: [ {
+				in: 'query',
+				name: 'param1',
+				type: 'string'
+			} ]
+		});
+	});
+
+	it('should transform query parameter with two type-only parameters', function() {
+		var spec = operationWrapper({ query: { param1: String, param2: Date }});
+
+		assert.deepEqual(spec, {
+			parameters: [ {
+				in: 'query',
+				name: 'param1',
+				type: 'string'
+			}, {
+				in: 'query',
+				name: 'param2',
+				type: 'string',
+				format: 'date-time'
+			} ]
+		});
+	});
+
+	it('should transform query parameter with more definitions', function() {
+		var spec = operationWrapper({ query: {
+			param1: { type: String, required: true },
+			param2: { type: Date, required: true },
+			param3: { type: Date, format: 'date', required: true }
+		}});
+
+		assert.deepEqual(spec, {
+			parameters: [ {
+				in: 'query',
+				name: 'param1',
+				type: 'string',
+				required: true
+			}, {
+				in: 'query',
+				name: 'param2',
+				type: 'string',
+				format: 'date-time',
+				required: true
+			}, {
+				in: 'query',
+				name: 'param3',
+				type: 'string',
+				format: 'date',
+				required: true
+			} ]
+		});
+	});
+
 	it('should return body definition if it is a string', function() {
 		var spec = operationWrapper({ body: 'Car' });
 

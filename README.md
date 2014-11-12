@@ -1,6 +1,10 @@
 # A lightweight solution to create swagger documentation with ExpressJS
 
-**Work in Process**
+Status: **Work in progress**
+
+## Installation
+
+	npm install bo-swag --save
 
 ## DRY.
 
@@ -26,7 +30,7 @@ But if you provide a small documentation hint this project will automatically ge
 // Name => Standard JSON-scheme
 app.addDefinition('Car', {
 	title: 'Cars',
-	type: 'object',
+	type: Object,
 	properties: {
 		manufacturer: { type: String },
 		model: { type: String }

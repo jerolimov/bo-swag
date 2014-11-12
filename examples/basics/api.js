@@ -3,7 +3,7 @@ var express = require('express'),
 	swag = require('../..'),
 	api = swag.router(express.Router());
 
-api._spec.addDefinition('Car', {
+api.addDefinition('Car', {
 	title: 'Cars',
 	type: 'object',
 	properties: {

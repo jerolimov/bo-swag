@@ -15,9 +15,7 @@ app.use(require('./routes'));
 // an api.js or spec.js file. Checkout also the basics example.
 var spec = require('./spec');
 
-var explorer = express.Router();
-explorer.use('/explorer', swag.swaggerUI(spec, app));
-app.use('/explorer', explorer);
+app.use('/explorer', swag.swaggerUI(spec, app));
 
 var server = app.listen(3000, function () {
 

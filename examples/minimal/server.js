@@ -49,9 +49,7 @@ spec.addDefinition('Car', {
 	}
 });
 
-var explorer = express.Router();
-explorer.use('/explorer', swag.swaggerUI(spec, app));
-app.use('/explorer', explorer);
+app.use('/explorer', swag.swaggerUI(spec, app));
 
 var server = app.listen(3000, function () {
 

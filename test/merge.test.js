@@ -20,7 +20,7 @@ describe('merge', function() {
 	});
 
 	it('should return value b if there is no value a', function() {
-		var result = merge(null, 42);
+		var result = merge(undefined, 42);
 		assert.deepEqual(result, 42);
 	});
 

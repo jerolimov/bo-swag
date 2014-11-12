@@ -1,4 +1,6 @@
-# A lightweight solution to create swagger documentation with ExpressJS
+# bo-sag [![Build status][travis-image]][travis-url] [![Test coverage][coveralls-image]][coveralls-url] [![Dependency Status][dependency-image]][dependency-url]
+
+## A lightweight solution to create swagger documentation with ExpressJS
 
 Status: **Work in progress**
 
@@ -74,3 +76,11 @@ generated swagger.json) just include the middleware.
 ```js
 app.use('/explorer', swag.middleware(spec, app));
 ```
+
+
+[travis-image]: https://img.shields.io/travis/jerolimov/bo-swag/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/jerolimov/bo-swag
+[coveralls-image]: https://img.shields.io/coveralls/jerolimov/bo-swag/master.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/jerolimov/bo-swag
+[dependency-image]: http://img.shields.io/david/jerolimov/bo-swag.svg?style=flat-square
+[dependency-url]: https://david-dm.org/jerolimov/bo-swag

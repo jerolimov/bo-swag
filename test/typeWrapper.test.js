@@ -20,8 +20,23 @@ describe('typeWrapper', function() {
 		assert.equal(type, 'string');
 	});
 
-	it('should return String for string', function() {
+	it('should return string for String', function() {
 		var type = typeWrapper(String);
 		assert.equal(type, 'string');
+	});
+
+	it('should return number for Number', function() {
+		var type = typeWrapper(Number);
+		assert.equal(type, 'number');
+	});
+
+	it('should return array for Array', function() {
+		var type = typeWrapper(Array);
+		assert.equal(type, 'array');
+	});
+
+	it('should return object for Object', function() {
+		var type = typeWrapper(Object);
+		assert.equal(type, 'object');
 	});
 });

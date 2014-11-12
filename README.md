@@ -1,4 +1,4 @@
-# bo-sag [![Build status][travis-image]][travis-url] [![Test coverage][coveralls-image]][coveralls-url] [![Dependency Status][dependency-image]][dependency-url]
+# bo-swag [![Build status][travis-image]][travis-url] [![Test coverage][coveralls-image]][coveralls-url] [![Dependency Status][dependency-image]][dependency-url]
 
 ## A lightweight solution to create swagger documentation with ExpressJS
 
